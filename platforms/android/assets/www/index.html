@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="MatchEnDirectRSS">
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <title>Match En Direct RSS</title>
+    <meta name="description" content="A simple RSS app using AngularJS for MatchEnDirect.">
+    <meta name="author" content="Mohamed Moussi">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
+    <script type="text/javascript" src="cordova.js"></script>
+</head>
+
+<body id="body">
+  
+<div class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="#/">Match En Direct RSS</a>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span3" ng-controller="FeedListCtrl">
+            <ul class="nav nav-list">
+                <li ng-repeat="feed in feeds">
+                    <a href="#/feed/{{feed.id}}">
+                        <img ng-src="img/match-en-direct-foot-live.png" width="16" height="16"/>
+                        <span ng-bind-html="feed.title"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="span9 ng-view" ng-animate="{enter: 'fade-enter'}">
+        </div>
+    </div>
+</div>
+
+<script src="scripts/js/angular.js"></script>
+<script src="scripts/js/angular-resource.js"></script>
+<script src="scripts/js/angular-route.js"></script>
+<script src="scripts/js/angular-sanitize.js"></script>
+<script src="scripts/app.js"></script>
+<script src="scripts/service/googleapis.feed.js"></script>
+<script src="scripts/service/LocalObjectStorage.js"></script>
+<script src="scripts/service/FeedList.js"></script>
+<script src="scripts/service/HashString.js"></script>
+<script src="scripts/filter/rssDate.js"></script>
+<script src="scripts/filter/hash.js"></script>
+<script src="scripts/controller/ItemsCrtl.js"></script>
+<script src="scripts/controller/ItemCrtl.js"></script>
+<script src="scripts/controller/FeedManageCrtl.js"></script>
+<script src="scripts/controller/FeedList.js"></script>
+</body>
+</html>
